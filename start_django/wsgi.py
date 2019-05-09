@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
-
+# 加载框架的环境
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'start_django.settings')
 
 application = get_wsgi_application()
