@@ -11,7 +11,32 @@
 <body>
 <div>
     this is rango {{ boldmessage }}
-    <img src="{% static 'images/timg.jpeg' %}" alt="rango">
+    <div class="img-thumbnail">
+        <img src="{% static 'images/timg.jpeg' %}" alt="rango">
+    </div>
+    <div>
+        {% if category %}
+            <table>
+                {% for c in category %}
+                    <tr>
+                        <td>
+                            {#取值的时候注意#}
+                            {{ c.likes }}
+                        </td>
+                        <td>
+                            {{ c.views }}
+                        </td>
+                        <td>
+                            <a href="/rango/page/{{ c.slug }}">{{ c.name }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <strong>没有值</strong>
+        {% endif %}
+    </div>
+
 </div>
 </body>
 </html>

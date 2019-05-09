@@ -2,7 +2,7 @@
 一个填充脚本
 """
 import os
-
+import random
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'start_django.settings')
 
 import django
@@ -79,6 +79,8 @@ def add_page(cat, title, url, views=0):
 def add_cat(name):
     # todo:get_or_create()会返回（object,created=true).[0]是获取object
     c = Category.objects.get_or_create(name=name)[0]
+    c.likes = random.randint(1, 10)
+    c.views = 5
     c.save()
     return c
 
