@@ -1,12 +1,17 @@
 <!DOCTYPE html>
+{% load static %}
+{#模板中引用静态文件#}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Rango</title>
+    <link href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.css' %}">
+    <script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.js' %}"></script>
 </head>
 <body>
 <div>
     this is rango {{ boldmessage }}
+    <img src="{% static 'images/timg.jpeg' %}" alt="rango">
 </div>
 </body>
 </html>

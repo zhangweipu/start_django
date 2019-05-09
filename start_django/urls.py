@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 # todo:和url的区别
 from django.urls import path
+from django.conf import settings
+# 为了使用静态媒体文件，需要引用该库
+from django.conf.urls.static import static
+# 导入模块使用的包
 from django.conf.urls import url
 from django.conf.urls import include
+# 导入模块
 from rango import views
 
 urlpatterns = [
@@ -26,4 +31,5 @@ urlpatterns = [
     # 注册包中的地址，使用include
     url(r'^rango/', include('rango.urls')),
     url(r'^$', views.index, name='index'),
-]
+                  # settings 是全局的还是有被引用
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

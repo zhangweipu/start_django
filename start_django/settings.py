@@ -68,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 在模板列表中添加媒体处理器
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -120,6 +122,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 # TODO：静态文件
-STATIC_URL = os.path.join(BASE_DIR, 'static')
-# 存放一系列的路径
-STATICFILES_DIRS = [STATIC_URL, ]
+STATIC_URL = '/static/'
+# 指向静态文件目录
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+# 存放一系列的路径，这两个路径不能混
+STATICFILES_DIRS = [STATIC_DIR, ]
+
+MEDIA_URL = '/media/'
+# django使用媒体的时候会使用这两个文件夹
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+# 指定去哪寻找媒体
+MEDIA_ROOT = MEDIA_DIR
