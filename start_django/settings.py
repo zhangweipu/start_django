@@ -27,7 +27,8 @@ SECRET_KEY = 'frs92)f9-h$1kw-%*wuh-r7c+e^xt7==n^9=8z=z%9i$h0okj%'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# POST传递数据时报错了，提示改成这样
+APPEND_SLASH = False
 # Application definition
 # 注册应用。
 INSTALLED_APPS = [
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rango',
     'utils',
+    'web_home',
 ]
 
 MIDDLEWARE = [

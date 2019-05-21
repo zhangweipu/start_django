@@ -46,6 +46,7 @@ def add_category(request):
     # 判断请求类型
     if request.method == 'POST':
         form = CategoryForm(request.POST)
+        print("是")
 
         if form.is_valid():
             form.save(commit=True)
@@ -53,5 +54,7 @@ def add_category(request):
             return index(request)
         else:
             print(form.errors)
+    print("get方法")
     # 渲染表单，并显示可能出现的错误to html 编写页面表单
     return render(request, 'rango/page.html', {'form': form})
+
